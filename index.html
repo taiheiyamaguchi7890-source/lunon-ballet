@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="足立区北千住の大人バレエサークル lunon ballet。子連れOK、初心者・ブランクのある方も歓迎。体験レッスン随時受付中。">
+<title>lunon ballet | 足立区 北千住の大人バレエサークル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --color-primary: #8b4a6b;
+  --color-primary-light: #a8627f;
+  --color-primary-dark: #6d3854;
+  --color-accent: #c4a882;
+  --color-accent-light: #d4be9e;
+  --color-bg: #fdfaf5;
+  --color-bg-alt: #f7f0e6;
+  --color-bg-dark: #8b4a6b;
+  --color-text: #3d3228;
+  --color-text-light: #6b5e52;
+  --color-white: #fff;
+  --color-border: #e8dfd4;
+  --font-heading: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --nav-height: 64px;
+  --section-padding: 100px 0;
+  --section-padding-sm: 64px 0;
+  --max-width: 1100px;
+  --border-radius: 12px;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.9;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+.ph { display: inline-block; }
+.nowrap { white-space: nowrap; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.section-label {
+  font-family: var(--font-accent);
+  font-size: clamp(12px, 2.5vw, 14px);
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  color: var(--color-text);
+}
+.section-lead {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--color-text-light);
+  max-width: 640px;
+}
+.img-note {
+  font-size: 11px;
+  color: var(--color-text-light);
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+/* ===== FADE-UP ANIMATION ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  background: rgba(253, 250, 245, 0.97);
+  box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+}
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-accent);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+  transition: color 0.3s;
+}
+.nav.scrolled .nav-logo { color: var(--color-primary); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+.nav.scrolled .nav-links a { color: var(--color-text); }
+.nav-links a:hover { color: var(--color-accent); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 12px !important;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s !important;
+}
+.nav-cta:hover { background: var(--color-primary-dark) !important; transform: translateY(-1px); }
+.nav-cta svg { width: 14px; height: 14px; flex-shrink: 0; }
+.hamburger {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  width: 28px; height: 20px; position: relative;
+}
+.hamburger span {
+  display: block; width: 100%; height: 2px;
+  background: var(--color-white);
+  position: absolute; left: 0;
+  transition: all 0.3s;
+}
+.nav.scrolled .hamburger span { background: var(--color-text); }
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { top: 18px; }
+.hamburger.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+/* Mobile Nav Overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(139,74,107,0.97);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+.nav-overlay.active { display: flex; }
+.nav-overlay a {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+.nav-overlay a:hover { color: var(--color-accent-light); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(80,30,55,0.45) 0%, rgba(80,30,55,0.6) 100%),
+    url('https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=1400&q=80&auto=format&fit=crop') center center / cover no-repeat;
+  background-color: #3d2030;
+}
+.hero-content { position: relative; z-index: 2; padding: 0 24px; }
+.hero-sub {
+  font-family: var(--font-accent);
+  font-size: clamp(12px, 2.5vw, 15px);
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 6vw, 44px);
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+.hero-lead {
+  font-size: clamp(13px, 3vw, 16px);
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 36px;
+}
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.3s, transform 0.2s;
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+.btn-secondary {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: var(--color-white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.3s, border-color 0.3s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-accent);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  z-index: 2;
+}
+.hero-scroll::after {
+  content: '';
+  display: block;
+  width: 1px; height: 32px;
+  background: rgba(255,255,255,0.3);
+  margin: 8px auto 0;
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ===== CONCEPT ===== */
+.concept { padding: var(--section-padding); }
+.concept-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.concept-img {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+.concept-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.concept-text .section-title { margin-top: 8px; }
+.concept-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.concept-tags span {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 50px;
+}
+
+/* ===== COURSES ===== */
+.courses {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt);
+}
+.courses-header { text-align: center; margin-bottom: 48px; }
+.courses-header .section-lead { margin: 0 auto; }
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.course-card {
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.course-card-img {
+  height: 200px;
+  overflow: hidden;
+  background: var(--color-border);
+  position: relative;
+}
+.course-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.course-card-label {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-family: var(--font-accent);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--color-white);
+  background: rgba(139,74,107,0.85);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.course-card-body { padding: 24px; }
+.course-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.course-card-body p {
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.course-meta span {
+  font-size: 11px;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+/* ===== INSTRUCTOR ===== */
+.instructor { padding: var(--section-padding); }
+.instructor-inner {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.instructor-photo {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+.instructor-photo img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.instructor-info .section-label { margin-bottom: 8px; }
+.instructor-name {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.instructor-role {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.instructor-bio {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+.instructor-quote {
+  position: relative;
+  padding: 20px 24px;
+  background: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--color-accent);
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt);
+}
+.gallery-header { text-align: center; margin-bottom: 40px; }
+.gallery-header .section-lead { margin: 0 auto; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-border);
+  aspect-ratio: 1;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* ===== REASONS ===== */
+.reasons { padding: var(--section-padding); }
+.reasons-header { text-align: center; margin-bottom: 48px; }
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.reason-card {
+  text-align: center;
+  padding: 32px 20px;
+}
+.reason-icon {
+  width: 56px; height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  border-radius: 50%;
+}
+.reason-icon svg {
+  width: 26px; height: 26px;
+  stroke: var(--color-primary);
+  fill: none;
+  stroke-width: 1.5;
+}
+.reason-card h3 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.reason-card p {
+  font-size: 13px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ===== PRICING ===== */
+.pricing {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt);
+}
+.pricing-header { text-align: center; margin-bottom: 48px; }
+.pricing-header .section-lead { margin: 0 auto; }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.pricing-card {
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  padding: 32px 28px;
+  text-align: center;
+}
+.pricing-card-label {
+  font-family: var(--font-accent);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 4px;
+}
+.pricing-card h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.pricing-card-sub {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-bottom: 20px;
+}
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: 16px;
+}
+.pricing-table th, .pricing-table td {
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+.pricing-table th {
+  font-weight: 500;
+  color: var(--color-text-light);
+  width: 45%;
+}
+.pricing-table td {
+  font-weight: 700;
+  text-align: right;
+  color: var(--color-primary);
+}
+.pricing-note {
+  font-size: 12px;
+  color: var(--color-text-light);
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* ===== FAQ ===== */
+.faq { padding: var(--section-padding); }
+.faq-header { text-align: center; margin-bottom: 48px; }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: left;
+  line-height: 1.6;
+}
+.faq-q svg {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  stroke: var(--color-accent);
+  transition: transform 0.3s;
+}
+.faq-item.active .faq-q svg { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+.faq-item.active .faq-a {
+  max-height: 300px;
+  padding-bottom: 20px;
+}
+.faq-a p {
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 2;
+}
+
+/* ===== ACCESS ===== */
+.access {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt);
+}
+.access-header { text-align: center; margin-bottom: 40px; }
+.access-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.access-map {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 380px;
+  background: var(--color-border);
+}
+.access-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.access-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.access-info-table th, .access-info-table td {
+  padding: 14px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+.access-info-table th {
+  font-weight: 500;
+  color: var(--color-text-light);
+  width: 100px;
+  white-space: nowrap;
+}
+.access-info-table td {
+  line-height: 1.8;
+}
+.access-note {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
+/* ===== CONTACT ===== */
+.contact { padding: var(--section-padding); }
+.contact-header { text-align: center; margin-bottom: 40px; }
+.contact-header .section-lead { margin: 0 auto; }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.contact-form { display: flex; flex-direction: column; gap: 18px; }
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-white);
+  transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-light);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.form-submit:hover { background: var(--color-primary-dark); }
+.contact-alt { display: flex; flex-direction: column; gap: 24px; }
+.contact-box {
+  background: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  padding: 24px;
+}
+.contact-box h4 {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-box h4 svg {
+  width: 18px; height: 18px;
+  stroke: var(--color-primary);
+  fill: none;
+  stroke-width: 2;
+}
+.contact-box p {
+  font-size: 13px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+.contact-box a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+.contact-box a:hover { text-decoration: underline; }
+
+/* ===== INSTAGRAM ===== */
+.instagram {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt);
+  text-align: center;
+}
+.instagram .section-title { font-family: var(--font-accent); letter-spacing: 0.03em; }
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 24px;
+  transition: background 0.3s, transform 0.2s;
+}
+.instagram-link:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+.instagram-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--color-text);
+  color: rgba(255,255,255,0.7);
+  padding: 48px 0 24px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.footer-logo {
+  font-family: var(--font-accent);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+.footer-info { font-size: 13px; line-height: 1.8; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 13px;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--color-white); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.6;
+}
+.footer-sample {
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .concept-inner { grid-template-columns: 1fr; gap: 32px; }
+  .concept-img { order: -1; }
+  .concept-img img { height: 280px; }
+  .courses-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .instructor-inner { grid-template-columns: 1fr; gap: 32px; }
+  .instructor-photo { max-width: 320px; }
+  .instructor-photo img { height: 320px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .access-inner { grid-template-columns: 1fr; }
+  .access-map { height: 280px; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 24px; }
+}
+@media (max-width: 768px) {
+  :root { --section-padding: 64px 0; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: clamp(24px, 7vw, 36px); }
+  .section-title { font-size: clamp(20px, 5.5vw, 28px); }
+}
+@media (max-width: 480px) {
+  .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
+  .reasons-grid { grid-template-columns: 1fr; }
+  .gallery-grid { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">lunon ballet</a>
+    <div class="nav-links">
+      <a href="#concept">教室について</a>
+      <a href="#courses">レッスン内容</a>
+      <a href="#instructor">講師紹介</a>
+      <a href="#pricing">料金</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="ph">体験レッスンお申し込み</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-overlay" id="navOverlay">
+  <a href="#concept">教室について</a>
+  <a href="#courses">レッスン内容</a>
+  <a href="#instructor">講師紹介</a>
+  <a href="#pricing">料金</a>
+  <a href="#access">アクセス</a>
+  <a href="#faq">よくある質問</a>
+  <a href="#contact">体験レッスンお申し込み</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-sub">ADACHI, TOKYO</p>
+    <h1><span class="ph">踊ることが好きな</span><span class="ph">あなたへ、</span><br><span class="ph">大人のための</span><span class="ph">バレエサークル</span></h1>
+    <p class="hero-lead"><span class="ph">北千住駅から徒歩6分。</span><span class="ph">子連れOK、初心者歓迎の</span><span class="ph">アットホームなバレエ教室です</span></p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">体験レッスンお申し込み</a>
+      <a href="#courses" class="btn-secondary">レッスン内容を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ===== CONCEPT ===== -->
+<section class="concept" id="concept">
+  <div class="container">
+    <div class="concept-inner">
+      <div class="concept-img fade-up" style="background-color: var(--color-bg-alt);">
+        <img src="https://images.unsplash.com/photo-1528224564567-1611757a2909?w=800&q=80&auto=format&fit=crop" alt="バレエのトウシューズ">
+      </div>
+      <div class="concept-text fade-up">
+        <p class="section-label">Concept</p>
+        <h2 class="section-title"><span class="ph">バレエを楽しむ</span><span class="ph">時間を、</span><br><span class="ph">もういちど</span></h2>
+        <p class="section-lead">lunon balletは足立区北千住を拠点に活動する、大人のためのバレエサークルです。</p>
+        <p class="section-lead" style="margin-top: 16px;"><span class="ph">「子どもが小さくて自分の趣味は無理」</span><span class="ph">「ブランクがあって不安」</span><span class="ph">「バレエは初めてだけどやってみたい」</span><span class="ph">そんな方にこそ来てほしい教室です。</span><span class="ph">お子さま連れでの参加もOK。</span><span class="ph">レベルを気にせず、</span><span class="ph">まずは身体を動かすことを</span><span class="ph">一緒に楽しみましょう。</span></p>
+        <div class="concept-tags">
+          <span>子連れOK</span>
+          <span>初心者歓迎</span>
+          <span>入会金なし</span>
+          <span>都度払い</span>
+        </div>
+      </div>
+    </div>
+    <p class="img-note">※イメージ写真です</p>
+  </div>
+</section>
+
+<!-- ===== COURSES ===== -->
+<section class="courses" id="courses">
+  <div class="container">
+    <div class="courses-header fade-up">
+      <p class="section-label">Lessons</p>
+      <h2 class="section-title"><span class="ph">レベルに合わせて</span><span class="ph">選べるクラス</span></h2>
+      <p class="section-lead"><span class="ph">初めての方からポワントまで。</span><span class="ph">ご自身のペースで</span><span class="ph">バレエを楽しめるクラスを</span><span class="ph">ご用意しています。</span></p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card fade-up">
+        <div class="course-card-img" style="background-color: var(--color-border);">
+          <img src="https://images.unsplash.com/photo-1516737488405-7b6d6868fad3?w=600&q=80&auto=format&fit=crop" alt="バレエレッスン風景のイメージ">
+          <span class="course-card-label">Level Free</span>
+        </div>
+        <div class="course-card-body">
+          <h3>レベルフリークラス</h3>
+          <p><span class="ph">初心者からブランクのある方まで、</span><span class="ph">どなたでも参加できる</span><span class="ph">オープンクラスです。</span><span class="ph">基本のバーレッスンから</span><span class="ph">センターまで丁寧に指導します。</span></p>
+          <div class="course-meta">
+            <span>日曜開催</span>
+            <span>75分</span>
+            <span>レベル不問</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-card fade-up">
+        <div class="course-card-img" style="background-color: var(--color-border);">
+          <img src="https://images.unsplash.com/photo-1511715282680-fbf93a50e721?w=600&q=80&auto=format&fit=crop" alt="バレエの基礎レッスンイメージ">
+          <span class="course-card-label">Beginner</span>
+        </div>
+        <div class="course-card-body">
+          <h3>基礎・初級クラス</h3>
+          <p><span class="ph">基礎を丁寧に学びたい方向け。</span><span class="ph">正しいポジションや</span><span class="ph">身体の使い方を</span><span class="ph">じっくり練習できます。</span><span class="ph">予約制の少人数レッスンです。</span></p>
+          <div class="course-meta">
+            <span>木曜・月2回</span>
+            <span>60分</span>
+            <span>予約制</span>
+          </div>
+        </div>
+      </div>
+      <div class="course-card fade-up">
+        <div class="course-card-img" style="background-color: var(--color-border);">
+          <img src="https://images.unsplash.com/photo-1495791185843-c73f2269f669?w=600&q=80&auto=format&fit=crop" alt="トウシューズのイメージ">
+          <span class="course-card-label">Private</span>
+        </div>
+        <div class="course-card-body">
+          <h3>個人レッスン</h3>
+          <p><span class="ph">マンツーマンで</span><span class="ph">自分のペースに合わせた</span><span class="ph">レッスンを受けられます。</span><span class="ph">バレエだけでなく新体操や</span><span class="ph">チアダンスの方への指導にも</span><span class="ph">対応しています。</span></p>
+          <div class="course-meta">
+            <span>日時相談</span>
+            <span>マンツーマン</span>
+            <span>各種対応</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="img-note" style="text-align:center; margin-top: 16px;">※イメージ写真です。実際の教室の様子は順次掲載予定です。</p>
+  </div>
+</section>
+
+<!-- ===== INSTRUCTOR ===== -->
+<section class="instructor" id="instructor">
+  <div class="container">
+    <div class="instructor-inner">
+      <div class="instructor-photo fade-up" style="background-color: var(--color-bg-alt);">
+        <img src="https://images.unsplash.com/photo-1593793516936-7a6b517c1075?w=600&q=80&auto=format&fit=crop" alt="トウシューズとチュチュ">
+        <p class="img-note">※イメージ写真です。正式ご依頼後に実際の講師写真に差し替えいたします。</p>
+      </div>
+      <div class="instructor-info fade-up">
+        <p class="section-label">Instructor</p>
+        <h2 class="section-title">講師紹介</h2>
+        <p class="instructor-name">sayaka 先生</p>
+        <p class="instructor-role">lunon ballet 主宰</p>
+        <p class="instructor-bio"><span class="ph">4歳よりバレエを始め、</span><span class="ph">モダンバレエやジャズダンスも学ぶ。</span><span class="ph">20歳より子どもから大人まで幅広く指導。</span><span class="ph">バレエスクールや区の施設など、</span><span class="ph">さまざまな場所で</span><span class="ph">指導経験を重ねてきました。</span><br><br><span class="ph">2013年にlunon balletの活動を開始。</span><span class="ph">以来、毎年発表会を開催し、</span><span class="ph">生徒の皆さんの</span><span class="ph">舞台での成長を見守っています。</span><span class="ph">バレエ以外にも新体操やチアダンス、</span><span class="ph">社交ダンスをされている方への</span><span class="ph">指導にも対応しています。</span></p>
+        <div class="instructor-quote">
+          <span class="ph">「バレエはいくつからでも始められます。</span><span class="ph">身体を動かす気持ちよさ、</span><span class="ph">音楽に合わせて踊る楽しさを</span><span class="ph">一緒に感じましょう。」</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-up">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title"><span class="ph">教室の雰囲気</span></h2>
+      <p class="section-lead"><span class="ph">レッスン風景や発表会の様子を</span><span class="ph">ご紹介します。</span></p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-up" style="background-color: var(--color-border);">
+        <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=400&q=80&auto=format&fit=crop" alt="バレエダンサーのシルエット">
+      </div>
+      <div class="gallery-item fade-up" style="background-color: var(--color-border);">
+        <img src="https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?w=400&q=80&auto=format&fit=crop" alt="バレエの舞台パフォーマンス">
+      </div>
+      <div class="gallery-item fade-up" style="background-color: var(--color-border);">
+        <img src="https://images.unsplash.com/photo-1619445704651-098bc122b05d?w=400&q=80&auto=format&fit=crop" alt="バレリーナの後ろ姿">
+      </div>
+      <div class="gallery-item fade-up" style="background-color: var(--color-border);">
+        <img src="https://images.unsplash.com/photo-1550026593-cb89847b168d?w=400&q=80&auto=format&fit=crop" alt="ダンスパフォーマンスの様子">
+      </div>
+    </div>
+    <p class="img-note" style="text-align:center; margin-top: 12px;">※イメージ写真です。実際の教室の様子は順次掲載予定です。</p>
+  </div>
+</section>
+
+<!-- ===== REASONS ===== -->
+<section class="reasons" id="reasons">
+  <div class="container">
+    <div class="reasons-header fade-up">
+      <p class="section-label">Why lunon ballet</p>
+      <h2 class="section-title"><span class="ph">lunon balletが</span><span class="ph">選ばれる理由</span></h2>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card fade-up">
+        <div class="reason-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3><span class="ph">入会金なし、</span><span class="ph">都度払いで気軽に</span></h3>
+        <p><span class="ph">月謝制ではなく</span><span class="ph">1回ごとのお支払い。</span><span class="ph">ご自身のペースで</span><span class="ph">無理なく続けられます。</span></p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3><span class="ph">子連れ参加OK、</span><span class="ph">ママも安心</span></h3>
+        <p><span class="ph">お子さまと一緒に来ていただけます。</span><span class="ph">育児中のリフレッシュにも</span><span class="ph">ぜひご活用ください。</span></p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3><span class="ph">北千住駅西口から</span><span class="ph">徒歩約6分</span></h3>
+        <p><span class="ph">主要ターミナルの北千住駅から</span><span class="ph">アクセスしやすい立地。</span><span class="ph">お仕事帰りや</span><span class="ph">お買い物ついでにも通えます。</span></p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3><span class="ph">年1回の発表会で</span><span class="ph">舞台に立てる</span></h3>
+        <p><span class="ph">2016年から毎年発表会を開催。</span><span class="ph">目標を持って</span><span class="ph">レッスンに取り組める環境です。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header fade-up">
+      <p class="section-label">Price &amp; Schedule</p>
+      <h2 class="section-title"><span class="ph">料金・スケジュール</span></h2>
+      <p class="section-lead"><span class="ph">入会金は不要です。</span><span class="ph">各クラスの料金をご確認のうえ、</span><span class="ph">お気軽に体験レッスンへ</span><span class="ph">お越しください。</span></p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <p class="pricing-card-label">Level Free</p>
+        <h3>レベルフリークラス</h3>
+        <p class="pricing-card-sub">日曜 10:15 - 11:30</p>
+        <table class="pricing-table">
+          <tr><th>入会金</th><td>なし</td></tr>
+          <tr><th>レッスン料</th><td>1回 1,500円</td></tr>
+          <tr><th>体験レッスン</th><td>1,000円</td></tr>
+          <tr><th>ポワント</th><td>+300円</td></tr>
+        </table>
+        <p class="pricing-note">ポワントクラスは11:30 - 11:50に実施</p>
+      </div>
+      <div class="pricing-card fade-up">
+        <p class="pricing-card-label">Beginner</p>
+        <h3>基礎・初級クラス</h3>
+        <p class="pricing-card-sub">木曜・月2回程度 / 予約制</p>
+        <table class="pricing-table">
+          <tr><th>入会金</th><td>なし</td></tr>
+          <tr><th>レッスン料</th><td>1回 2,200円</td></tr>
+          <tr><th>体験レッスン</th><td>1,000円</td></tr>
+        </table>
+        <p class="pricing-note"><span class="ph">開催日はお問い合わせください。</span><span class="ph">予約制のため事前連絡をお願いします。</span></p>
+      </div>
+      <div class="pricing-card fade-up">
+        <p class="pricing-card-label">Private</p>
+        <h3>個人レッスン</h3>
+        <p class="pricing-card-sub">日時はご相談ください</p>
+        <table class="pricing-table">
+          <tr><th>入会金</th><td>なし</td></tr>
+          <tr><th>レッスン料</th><td>3,000円〜</td></tr>
+        </table>
+        <p class="pricing-note"><span class="ph">スタジオレンタル費が別途かかります。</span><span class="ph">バレエ未経験の方は個人レッスンを</span><span class="ph">数回受講してからのクラス参加を</span><span class="ph">おすすめしています。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header fade-up">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title"><span class="ph">よくある質問</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <button class="faq-q">
+          <span class="ph">バレエがまったく初めてでも</span><span class="ph">大丈夫ですか</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">
+          <p><span class="ph">はい、大歓迎です。</span><span class="ph">レベルフリークラスは</span><span class="ph">バーレッスンの基本から始めますので、</span><span class="ph">初めての方も安心してご参加いただけます。</span><span class="ph">バレエ未経験の方には、</span><span class="ph">まず個人レッスンを数回受講してから</span><span class="ph">クラスに参加されることもおすすめしています。</span></p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q">
+          <span class="ph">子どもを連れて行っても</span><span class="ph">大丈夫ですか</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">
+          <p><span class="ph">はい、子連れ参加OKです。</span><span class="ph">スタジオ内でお子さまと一緒にお過ごしいただけます。</span><span class="ph">育児中の方にも気軽にバレエを</span><span class="ph">楽しんでいただきたいと考えています。</span></p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q">
+          <span class="ph">レッスンに必要な持ち物は</span><span class="ph">ありますか</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">
+          <p><span class="ph">動きやすい服装とバレエシューズを</span><span class="ph">お持ちください。</span><span class="ph">体験レッスンでは靴下でも参加いただけます。</span><span class="ph">飲み物やタオルもあると安心です。</span></p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q">
+          <span class="ph">ブランクが長いのですが</span><span class="ph">大丈夫でしょうか</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">
+          <p><span class="ph">もちろんです。</span><span class="ph">ブランクのある方も多く参加されています。</span><span class="ph">身体の感覚を少しずつ取り戻しながら、</span><span class="ph">ご自身のペースで楽しんでいただけます。</span></p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q">
+          <span class="ph">体験レッスンの流れを</span><span class="ph">教えてください</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-a">
+          <p><span class="ph">メールまたはInstagramのDMで</span><span class="ph">お申し込みいただき、</span><span class="ph">日程を調整します。</span><span class="ph">当日は通常のクラスに一緒にご参加いただきます。</span><span class="ph">体験後に教室の雰囲気や今後のレッスンについて</span><span class="ph">お話しいたしますので、</span><span class="ph">そのうえでご検討ください。</span><span class="ph">無理な勧誘は一切ありません。</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACCESS ===== -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="access-header fade-up">
+      <p class="section-label">Access</p>
+      <h2 class="section-title"><span class="ph">アクセス</span></h2>
+    </div>
+    <div class="access-inner">
+      <div class="access-map fade-up">
+        <iframe src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B6%B3%E7%AB%8B%E5%8C%BA%E5%8D%83%E4%BD%8F1-24-6&z=16&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="教室の所在地"></iframe>
+      </div>
+      <div class="access-info fade-up">
+        <table class="access-info-table">
+          <tr><th>教室名</th><td>lunon ballet</td></tr>
+          <tr><th>会場</th><td>北千住SATOトータルダンススクール</td></tr>
+          <tr><th>住所</th><td>東京都足立区千住1-24-6 第2立川ビル6F</td></tr>
+          <tr><th>最寄駅</th><td>北千住駅 西口より徒歩約6分</td></tr>
+          <tr><th>メール</th><td><a href="mailto:lunon.ballet@gmail.com" style="color: var(--color-primary);">lunon.ballet@gmail.com</a></td></tr>
+        </table>
+        <p class="access-note"><span class="ph">北千住駅西口を出て商店街を進み、</span><span class="ph">1階に「メガネスーパー」がある建物の</span><span class="ph">エレベーターで6階へお越しください。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-header fade-up">
+      <p class="section-label">Trial Lesson</p>
+      <h2 class="section-title"><span class="ph">体験レッスン・</span><span class="ph">お問い合わせ</span></h2>
+      <p class="section-lead"><span class="ph">「ちょっと気になる」だけでも大歓迎。</span><span class="ph">まずはお気軽にご連絡ください。</span><span class="ph">体験レッスンは随時受付中です。</span></p>
+    </div>
+    <div class="contact-inner">
+      <form class="contact-form fade-up" onsubmit="return false;">
+        <div class="form-group">
+          <label for="name">お名前</label>
+          <input type="text" id="name" placeholder="例：山田 花子">
+        </div>
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" placeholder="例：hanako@example.com">
+        </div>
+        <div class="form-group">
+          <label for="course">ご希望のクラス</label>
+          <select id="course">
+            <option value="">選択してください</option>
+            <option>レベルフリークラス</option>
+            <option>基礎・初級クラス</option>
+            <option>個人レッスン</option>
+            <option>その他のお問い合わせ</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">メッセージ</label>
+          <textarea id="message" placeholder="ご質問やご希望がありましたらご記入ください"></textarea>
+        </div>
+        <button type="submit" class="form-submit">送信する</button>
+      </form>
+      <div class="contact-alt fade-up">
+        <div class="contact-box">
+          <h4>
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            メールでのお問い合わせ
+          </h4>
+          <p><a href="mailto:lunon.ballet@gmail.com">lunon.ballet@gmail.com</a></p>
+        </div>
+        <div class="contact-box">
+          <h4>
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            InstagramのDMでも受付中
+          </h4>
+          <p><span class="ph">日々のレッスンの様子や</span><span class="ph">発表会の情報も投稿しています。</span><span class="ph">お気軽にDMください。</span></p>
+          <p style="margin-top: 8px;"><a href="https://www.instagram.com/lunonballet/" target="_blank" rel="noopener">@lunonballet</a></p>
+        </div>
+        <div class="contact-box">
+          <h4>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            体験レッスンについて
+          </h4>
+          <p><span class="ph">レベルフリークラスは体験1,000円。</span><span class="ph">動きやすい服装でお越しください。</span><span class="ph">バレエシューズがなくても</span><span class="ph">靴下で参加いただけます。</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section class="instagram" id="instagram">
+  <div class="container fade-up">
+    <p class="section-label">Instagram</p>
+    <h2 class="section-title">@lunonballet</h2>
+    <p class="section-lead" style="margin: 0 auto;"><span class="ph">レッスンの様子や</span><span class="ph">発表会のお知らせなどを</span><span class="ph">発信しています。</span></p>
+    <a href="https://www.instagram.com/lunonballet/" target="_blank" rel="noopener" class="instagram-link">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagramをフォローする
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-logo">lunon ballet</p>
+        <p class="footer-info">足立区北千住 / 北千住SATOトータルダンススクール<br>メール: lunon.ballet@gmail.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="#concept">教室について</a>
+        <a href="#courses">レッスン内容</a>
+        <a href="#instructor">講師紹介</a>
+        <a href="#pricing">料金</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 lunon ballet All Rights Reserved.</p>
+    </div>
+    <p class="footer-sample">※このサイトはサンプルとして制作したものであり、現時点で公開等は一切しておりません。<br>正式にご依頼いただいた際は、実際のお写真・レッスン情報を追加して完成度を高めます。</p>
+  </div>
+</footer>
+
+<script>
+/* ===== NAV SCROLL ===== */
+(function(){
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('hero');
+  function checkScroll() {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  /* ===== HAMBURGER ===== */
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('navOverlay');
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+  });
+  overlay.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ===== FADE-UP (IntersectionObserver) ===== */
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  /* ===== FAQ ACCORDION ===== */
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      var isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item.active').forEach(function(i) {
+        i.classList.remove('active');
+      });
+      if (!isActive) item.classList.add('active');
+    });
+  });
+
+  /* ===== SMOOTH SCROLL (for Safari) ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 64;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
